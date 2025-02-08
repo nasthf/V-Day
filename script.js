@@ -24,7 +24,7 @@ function askAvailability() {
 // Step 3: Show the photo and ask if they want to go out
 function showPhoto() {
   app.innerHTML = `
-    <h1>Would you like to go out with this man?</h1>
+    <h1>Would you like to go out with this handsome man?</h1>
     <img src="photo1.jpg" alt="Man">
     <button onclick="showNextPhoto()">Yes</button>
     <button onclick="endApp()">No</button>
@@ -34,16 +34,35 @@ function showPhoto() {
 // Step 4: Show the next photo
 function showNextPhoto() {
   app.innerHTML = `
-    <h1>Great choice! Here's another photo:</h1>
+    <h1>Wow! He really is handsome no?:</h1>
     <img src="photo2.jpg" alt="Man">
-    <button onclick="endApp()">Close</button>
+    <button onclick="showNextPhoto()">Yes</button>
+    <button onclick="showNextPhoto()">Yes!</button>
   `;
 }
 
-// Step 5: End the app
+// Step 5: Show the next photo
+function showNextPhoto() {
+  app.innerHTML = `
+    <h1>Don't you just want to have him right here right now?:</h1>
+    <img src="photo3.jpg" alt="Man">
+    <button onclick="showNextPhoto()">OMG Yes</button>
+    <button onclick="showNextPhoto()">HELL Yes!</button>
+      `;
+}
+
+// Step 6: Show the next photo
+function showNextPhoto() {
+  app.innerHTML = `
+    <h1>Here's an AI Generated Image of the two of you together, how cute!:</h1>
+    <img src="photo4.jpg" alt="Man">
+    <button onclick="endApp()">Aww</button>
+      `;
+}
+// Step 7: End the app
 function endApp() {
   app.innerHTML = `
-    <h1>Thank you, ${userName}! Have a great day!</h1>
+    <h1>Thank you, ${userName}! Send nudes</h1>
   `;
 }
 
