@@ -1,7 +1,7 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #fff0f5;
   margin: 0;
   padding: 20px;
 }
@@ -10,28 +10,60 @@ body {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffebee;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #b76e79;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 button {
+  font-family: 'Dancing Script', cursive;
   padding: 10px 20px;
   margin: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
-  background-color: #ff6f61;
+  background-color: #b76e79;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #ff4a3d;
+  background-color: #a85c68;
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+button:active::after {
+  content: '❤️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: heartPop 0.5s ease-out;
 }
 
 img {
-  max-width: 25%;
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 15px;
   margin-top: 20px;
+  box-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
 }
