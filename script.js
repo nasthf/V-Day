@@ -32,7 +32,7 @@ function showPhoto() {
 }
 
 // Step 4: Show the next photo
-function showNextPhoto() {
+function showSecondPhoto() {
   app.innerHTML = `
     <h1>Wow! He really is handsome no?:</h1>
     <img src="photo2.jpg" alt="Man">
@@ -42,7 +42,7 @@ function showNextPhoto() {
 }
 
 // Step 5: Show the next photo
-function showNextPhoto() {
+function showThirdPhoto() {
   app.innerHTML = `
     <h1>Don't you just want to have him right here right now?:</h1>
     <img src="photo3.jpg" alt="Man">
@@ -52,7 +52,7 @@ function showNextPhoto() {
 }
 
 // Step 6: Show the next photo
-function showNextPhoto() {
+function showFinalPhoto() {
   app.innerHTML = `
     <h1>Here's an AI Generated Image of the two of you together, how cute!:</h1>
     <img src="photo4.jpg" alt="Man">
