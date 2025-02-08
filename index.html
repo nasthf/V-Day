@@ -6,7 +6,6 @@
   <title>Valentine's Day Invitation</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
   <style>
-    /* Embedded CSS */
     body {
       font-family: 'Arial', sans-serif;
       text-align: center;
@@ -45,10 +44,6 @@
       outline: none;
     }
 
-    input:focus {
-      border-color: #a85c68;
-    }
-
     button {
       font-family: 'Dancing Script', cursive;
       padding: 10px 20px;
@@ -59,27 +54,11 @@
       background-color: #b76e79;
       color: white;
       font-size: 20px;
-      position: relative;
-      overflow: hidden;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
       background-color: #a85c68;
-    }
-
-    @keyframes heartPop {
-      0% { transform: scale(0); opacity: 1; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-
-    button:active::after {
-      content: '❤️';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: heartPop 0.5s ease-out;
     }
 
     img {
@@ -96,8 +75,8 @@
   <div id="app"></div>
 
   <script>
-    // Embedded JavaScript
     const app = document.getElementById('app');
+
     let userName = '';
     let isFree = false;
 
@@ -119,39 +98,63 @@
 
     function showPhoto() {
       app.innerHTML = `
-        <h1>Would you like to go out with this man?</h1>
+        <h1>Would you like to go out with this handsome man?</h1>
         <img src="photo1.jpg" alt="Man">
-        <button onclick="showNextPhoto()">Yes</button>
+        <button onclick="showSecondPhoto()">Yes</button>
         <button onclick="endApp()">No</button>
       `;
     }
 
-    function showNextPhoto() {
+    function showSecondPhoto() {
       app.innerHTML = `
-        <h1>Great choice! Here's another photo:</h1>
+        <h1>Wow! He really is handsome, no?</h1>
         <img src="photo2.jpg" alt="Man">
-        <button onclick="endApp()">Close</button>
+        <button onclick="showThirdPhoto()">Yes</button>
+        <button onclick="showThirdPhoto()">Yes!</button>
+      `;
+    }
+
+    function showThirdPhoto() {
+      app.innerHTML = `
+        <h1>Don't you just want to have him right here, right now?</h1>
+        <img src="photo3.jpg" alt="Man">
+        <button onclick="showFinalPhoto()">OMG Yes</button>
+        <button onclick="showFinalPhoto()">HELL Yes!</button>
+      `;
+    }
+
+    function showFinalPhoto() {
+      app.innerHTML = `
+        <h1>Here's an AI-generated image of the two of you together, how cute!</h1>
+        <img src="photo4.jpg" alt="Man">
+        <button onclick="endApp()">Aww</button>
       `;
     }
 
     function endApp() {
       app.innerHTML = `
-        <h1>Thank you, ${userName}! Have a great day!</h1>
+        <h1>Thank you, ${userName}! Hope you have a great day!</h1>
       `;
     }
 
     function submitName() {
-      userName = document.getElementById('nameInput').value;
-      if (userName) askAvailability();
-      else alert('Please enter your name!');
+      userName = document.getElementById('nameInput').value.trim();
+      if (userName) {
+        askAvailability();
+      } else {
+        alert('Please enter your name!');
+      }
     }
 
     function setAvailability(free) {
       isFree = free;
-      isFree ? showPhoto() : endApp();
+      if (isFree) {
+        showPhoto();
+      } else {
+        endApp();
+      }
     }
 
-    // Start the app
     askName();
   </script>
 </body>
