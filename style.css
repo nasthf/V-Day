@@ -62,7 +62,9 @@ button:active::after {
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%; /* Adjusted width */
+  max-height: 300px; /* Optional: Limits height */
+  height: auto;
   border-radius: 15px;
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
