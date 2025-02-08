@@ -69,8 +69,8 @@ function endApp() {
 
 // Helper functions
 function submitName() {
-  userName = document.getElementById('nameInput').value;
-  if (userName.trim()) {
+  userName = document.getElementById('nameInput').value.trim();
+  if (userName) {
     askAvailability();
   } else {
     alert('Please enter your name!');
