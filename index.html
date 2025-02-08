@@ -5,12 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day Invitation</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Embedded CSS */
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #app {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      background-color: #ffebee;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #b76e79;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      border: 2px solid #b76e79;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #a85c68;
+    }
+
+    button {
+      font-family: 'Dancing Script', cursive;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: #b76e79;
+      color: white;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a85c68;
+    }
+
+    @keyframes heartPop {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    button:active::after {
+      content: '❤️';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: heartPop 0.5s ease-out;
+    }
+
+    img {
+      max-width: 80%;
+      max-height: 300px;
+      height: auto;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
+    }
+  </style>
 </head>
 <body>
-  <div id="app">
-    <!-- Content will be dynamically updated here -->
-  </div>
-  <script src="script.js"></script>
+  <div id="app"></div>
+
+  <script>
+    // Embedded JavaScript
+   const app = document.getElementById('app');
+
+let userName = '';
+let isFree = false;
+
+// Step 1: Ask for the user's name
+function askName() {
+  app.innerHTML = `
+    <h1>What is your name?</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="submitName()">Submit</button>
+  `;
+}
+
+// Step 2: Ask if the user is free on 14th February 2025
+function askAvailability() {
+  app.innerHTML = `
+    <h1>Hi ${userName}, are you free on 14th February 2025?</h1>
+    <button onclick="setAvailability(true)">Yes</button>
+    <button onclick="setAvailability(false)">No</button>
+  `;
+}
+
+// Step 3: Show the first photo
+function showPhoto() {
+  app.innerHTML = `
+    <h1>Would you like to go out with this handsome man?</h1>
+    <img src="photo1.jpg" alt="Man">
+    <button onclick="showSecondPhoto()">Yes</button>
+    <button onclick="endApp()">No</button>
+  `;
+}
+
+// Step 4: Show the second photo
+function showSecondPhoto() {
+  app.innerHTML = `
+    <h1>Wow! He really is handsome, no?</h1>
+    <img src="photo2.jpg" alt="Man">
+    <button onclick="showThirdPhoto()">Yes</button>
+    <button onclick="showThirdPhoto()">Yes!</button>
+  `;
+}
+
+// Step 5: Show the third photo
+function showThirdPhoto() {
+  app.innerHTML = `
+    <h1>Don't you just want to have him right here, right now?</h1>
+    <img src="photo3.jpg" alt="Man">
+    <button onclick="showFinalPhoto()">OMG Yes</button>
+    <button onclick="showFinalPhoto()">HELL Yes!</button>
+  `;
+}
+
+// Step 6: Show the final AI-generated photo
+function showFinalPhoto() {
+  app.innerHTML = `
+    <h1>Here's an AI-generated image of the two of you together, how cute!</h1>
+    <img src="photo4.jpg" alt="Man">
+    <button onclick="endApp()">Aww</button>
+  `;
+}
+
+// Step 7: End the app
+function endApp() {
+  app.innerHTML = `
+    <h1>Thank you, ${userName}! Hope you have a great day!</h1>
+  `;
+}
+
+// Helper functions
+function submitName() {
+  userName = document.getElementById('nameInput').value.trim();
+  if (userName) {
+
+    // Start the app
+    askName();
+  </script>
 </body>
 </html>
